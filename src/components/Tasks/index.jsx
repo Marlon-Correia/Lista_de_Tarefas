@@ -1,5 +1,4 @@
 import React from 'react';
-import * as C from './Task.styles' 
 import Task from '../task';
 
 const Tasks = ({ tasks, taskCheck, taskDelete }) => {

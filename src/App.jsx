@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import * as C from './styles'
 import {v4 as uuidv4} from 'uuid'
-import { BrowserRouter, Route, Routes} from 'react-router-dom'
-import axios from 'axios'
+import { Route, Routes} from 'react-router-dom'
 
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
 import Header from './components/Header';
 import TaskDetails from './components/TaskDetails';
-import { RequestTasks } from './api/request';
 
 const App = () => {
   const [tasks, setTasks] = useState([
@@ -34,26 +32,11 @@ const App = () => {
   }
 
   const handleTaskDelete = (taskId) => {
-    let newTasks = tasks.filter(task => task.id != taskId);
+    let newTasks = tasks.filter(task => task.id !== taskId);
     setTasks(newTasks)
-    /*
-    let newTasks = [];
-    const verify = tasks.map( task => {
-      if(task.id != taskVerify.id) {
-        newTasks.push(task)
-      } 
-    return newTasks
-    }) 
-    */
   }
 
-  useEffect( () => {
-    const fetchTasks = async () => {
-      const response = await axios.get('https://jsonplaceholder.typicode.com/todos')
-      setTasks(response.data)
-    }
-    fetchTasks();
-  }, [])
+  
 
   return (
     <>

@@ -1,7 +1,7 @@
 import React from 'react';
 import * as C from './task' 
-import { CgClose, cG, CgInfo} from 'react-icons/cg'
-import { Link, useNavigate } from 'react-router-dom'
+import { CgClose, CgInfo} from 'react-icons/cg'
+import { useNavigate } from 'react-router-dom'
 
 const Task = ({task, taskCheck, taskDelete}) => {
     const navigate = useNavigate();
